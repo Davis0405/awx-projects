@@ -1,7 +1,8 @@
 ---
-- name: Ping a Windows
-  hosts: all
+- name: Detener JBoss en Windows
+  hosts: windows
   gather_facts: no
   tasks:
-    - name: Hacer ping
-      win_ping:
+    - name: Ejecutar comando para detener JBoss
+      win_shell: >
+        C:\jboss-eap-7.4.0\jboss-eap-7.4\bin\jboss-cli.bat --connect command=:shutdown
