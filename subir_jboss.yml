@@ -4,6 +4,6 @@
   gather_facts: no
 
   tasks:
-    - name: Iniciar JBoss con PowerShell
-      win_shell: >
+    - name: Iniciar JBoss con PowerShell (sin bloquear Ansible)
+      win_shell: |
         powershell.exe -Command "Start-Process -FilePath 'standalone.bat' -WorkingDirectory 'C:\jboss-eap-7.4.0\jboss-eap-7.4\bin' -WindowStyle Hidden"
