@@ -1,6 +1,6 @@
 ---
 - name: Ping a Windows
-  hosts: 10.62.64.222
+  hosts: windows
   gather_facts: no
   tasks:
     - name: Hacer ping
