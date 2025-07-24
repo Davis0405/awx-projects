@@ -1,6 +1,6 @@
 ---
 - name: Detener JBoss en Windows
-  hosts: windows
+    hosts: all
   gather_facts: no
   tasks:
     - name: Ejecutar comando para detener JBoss
