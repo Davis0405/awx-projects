@@ -1,0 +1,7 @@
+---
+- name: Ping a Windows
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Hacer ping
+      win_ping:
