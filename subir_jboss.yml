@@ -1,9 +1,9 @@
 ---
-- name: Iniciar JBoss como proceso en segundo plano
+- name: Iniciar JBoss como proceso independiente
   hosts: all
   gather_facts: no
+
   tasks:
-    - name: Iniciar JBoss con start
-      win_command: 'cmd /c start "" "C:\jboss-eap-7.4.0\jboss-eap-7.4\bin\standalone.bat"'
-      args:
-        chdir: 'C:\jboss-eap-7.4.0\jboss-eap-7.4\bin'
+    - name: Iniciar JBoss con PowerShell Start-Process
+      win_shell: |
+        Start-Process -FilePath "C:\jboss-eap-7.4.0\jboss-eap-7.4\bin\standalone.bat" -WorkingDirectory "C:\jboss-eap-7.4.0\jboss-eap-7.4\bin" -WindowStyle Hidden
