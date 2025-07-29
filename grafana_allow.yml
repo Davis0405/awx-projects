@@ -1,6 +1,6 @@
 - name: Install Alloy
   hosts: all
-  become: true
+
 
   tasks:
     - name: Install Alloy
