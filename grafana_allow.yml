@@ -1,0 +1,19 @@
+- name: Install Alloy
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install Alloy
+      ansible.builtin.include_role:
+        name: grafana.grafana.alloy
+      vars:
+        alloy_config: |
+          prometheus.scrape "default" {
+            targets = [{"__address__" = "localhost:9100"}]
+            forward_to = [prometheus.remote_write.prom.receiver]
+          }
+          prometheus.remote_write "prom" {
+            endpoint {
+                url = "http://localhost:9090/api/v1/write"
+            }
+          }
