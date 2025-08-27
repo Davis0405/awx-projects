@@ -1,19 +1,10 @@
-- name: Install Alloy
-  hosts: all
+- name: Copiar instalador al Windows
+  ansible.windows.win_copy:
+    src: /home/ansible/instaladores/FirefoxSetup.exe
+    dest: C:\Temp\app.exe
 
-
-  tasks:
-    - name: Install Alloy
-      ansible.builtin.include_role:
-        name: grafana.grafana.alloy
-      vars:
-        alloy_config: |
-          prometheus.scrape "default" {
-            targets = [{"__address__" = "localhost:9100"}]
-            forward_to = [prometheus.remote_write.prom.receiver]
-          }
-          prometheus.remote_write "prom" {
-            endpoint {
-                url = "http://localhost:9090/api/v1/write"
-            }
-          }
+- name: Instalar aplicación
+  ansible.windows.win_package:
+    path: C:\Temp\app.exe
+    arguments: /silent
+    state: present
