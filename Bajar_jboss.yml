@@ -14,7 +14,8 @@
 
     - name: Borrar archivos de log de JBoss
       win_file:
-        path: C:\jboss-eap-7.4.0\jboss-eap-7.4\standalone\log
+        path: C:\jboss-eap-7.4.0\jboss-eap-7.4\standalone\tmp
+        path: C:\jboss-eap-7.4.0\jboss-eap-7.4\standalone\data
         state: absent
 
     - name: Volver a crear carpeta de logs
