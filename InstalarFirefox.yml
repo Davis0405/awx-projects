@@ -1,3 +1,4 @@
+---
 - name: Copiar instalador al Windows
   ansible.windows.win_copy:
     src: /home/ansible/instaladores/FirefoxSetup.exe
