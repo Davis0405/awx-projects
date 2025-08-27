@@ -1,0 +1,10 @@
+- name: Copiar instalador al Windows
+  ansible.windows.win_copy:
+    src: /home/ansible/instaladores/FirefoxSetup.exe
+    dest: C:\Temp\app.exe
+
+- name: Instalar aplicación
+  ansible.windows.win_package:
+    path: C:\Temp\app.exe
+    arguments: /silent
+    state: present
